@@ -3,14 +3,14 @@ import {
   getAllUsers,
   getUserDetails,
   login,
-  newUser,
+  register,
 } from "../controllers/user.js";
 
 const router = express.Router();
 
 router.get("/all", getAllUsers);
 
-router.post("/new", newUser);
+router.post("/register", register);
 
 router.post("/login", login);
 

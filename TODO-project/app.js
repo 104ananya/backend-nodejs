@@ -11,7 +11,7 @@ config({
 
 // using middleware
 app.use(express.json());
-app.use(userRouter);
+app.use("/users", userRouter);
 
 // CREATING ROUTES
 
