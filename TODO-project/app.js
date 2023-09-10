@@ -22,3 +22,13 @@ app.use("/api/v1/task", taskRouter);
 app.get("/", (req, res) => {
   res.send("Hello World");
 });
+
+// error handling in node.js
+app.use((err, req, res, next) => {
+  console.log(err.message);
+
+  return res.status(404).json({
+    success: false,
+    message: "Invalid",
+  });
+});
