@@ -3,6 +3,7 @@ import userRouter from "./routes/user.js";
 import taskRouter from "./routes/task.js";
 import { config } from "dotenv";
 import cookieParser from "cookie-parser";
+import { erroMiddleware } from "./middlewares/error.js";
 
 export const app = express();
 
@@ -24,11 +25,4 @@ app.get("/", (req, res) => {
 });
 
 // error handling in node.js
-app.use((err, req, res, next) => {
-  console.log(err.message);
-
-  return res.status(404).json({
-    success: false,
-    message: "Invalid",
-  });
-});
+app.use(erroMiddleware);

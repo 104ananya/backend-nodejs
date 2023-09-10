@@ -37,7 +37,7 @@ export const updateTask = async (req, res, next) => {
   const task = await Task.findById(id);
 
   // error handling
-  if (!task) return next(new Error("nice"));
+  if (!task) return next(new Error());
 
   // checkbox
   task.isCompleted = !task.isCompleted;
@@ -57,7 +57,7 @@ export const deleteTask = async (req, res, next) => {
   const task = await Task.findById(id);
 
   // error handling
-  if (!task) return next(new Error("nice"));
+  if (!task) return next(new Error("Invalid ID"));
 
   // delete
   await task.deleteOne();
